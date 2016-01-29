@@ -1,0 +1,17 @@
+{
+  "name": "duck_and_jumb",
+  "homepage": "https://github.com/Dragomir89/duck_and_jump",
+  "authors": [
+    "Dragomir89 <drashoo@abv.bg>"
+  ],
+  "description": "simple JS game",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "duck"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^2.2.0"
+  }
+}
