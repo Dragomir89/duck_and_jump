@@ -1,16 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<div class="container-fluid row">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#game">Game</a></li>
+                    <li><a href="#score">Score</a></li>
+                    <li><a href="#"  id="open-modal">Open Dialog</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div id="game-play">
+
+        <div id="top-bar" class="clearfix">
+            <div id="health-container" class="pull-left col-xs-4 text-left">
+                <span id="healthInfo" class="fa fa-heartbeat fa-2x"></span>
+            </div>
+            <div id="time-container" class="pull-left col-xs-4 text-center">
+                <span class="fa fa-clock-o fa-2x"></span>
+            </div>
+            <div  id="points-container" class="pull-left col-xs-4 text-right">
+                <span id="scoreInfo" class="fa fa-star fa-2x">0</span>
+            </div>
+        </div>
+
+        <div id="stage">
+            <div id="player"></div>
+            <div id="obstacle"></div>
+        </div>
+    </div>
+
+    <div id="controlButtons">
+        <div class="btnWrapper">
+            <button type="button" id="addResult" class="endGameButtons btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Public score</button>
+        </div>
+        <div class="btnWrapper">
+            <button type="button" id="playAgain" class="endGameButtons btn btn-success btn-lg">Play again</button>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add field</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <fieldset class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="name">
+                        </fieldset>
+                    </form>
+                    <p id="totalScore">Your score is: </p>
+                </div>
+                <div class="modal-footer">
+                    <button id="save" type="button" class="btn btn-success" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
 
 
 
-<script>
 
-</script>
+    </div>
+
+    <div id="score-panel">
+        <div class="jumbotron">
+            <h4 class="text-center">Top records</h4>
+        </div>
+        <table class="table">
+            <tr>
+                <td>#</td>
+                <td>Name</td>
+                <td>Score</td>
+            </tr>
+        </table>
+    </div>
+    <!-- <div class="modal fade" id="name-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Enter Your Name</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="" role="form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input id="name" class="form-control">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/Aplication.js"></script>
+    <script type="text/javascript" src="js/Obstacle.js"></script>
+    <script type="text/javascript" src="js/Player.js"></script>
+    <script type="text/javascript" src="js/Stage.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#open-modal').on('click', function() {
+                $('#name-modal').modal('show')
+            });
+
+            Application.init({
+                '': 'game-play',
+                'game': 'game-play',
+                'score': 'score-panel'
+            });
+
+            var stage = new Stage();
+            stage.start();
+
+        })
+
+    </script>
 </body>
 </html>

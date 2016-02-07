@@ -1,0 +1,35 @@
+body{  }
+#stage {
+    min-height: 320px;
+    border: 1px solid red;
+    position: relative;
+}
+
+#player {
+    position: absolute;
+    bottom: 20px;
+    width: 70px;
+    height: 210px;
+    background-color: green;
+    left: 100px;
+    border-radius: 50px;
+}
+
+#obstacle{
+    border-radius: 50px;
+
+}
+#controlButtons{
+    width: 300px;
+    margin: 0 auto;
+    display: none;
+}
+.btnWrapper{
+    margin-top: 10px;
+}
+.endGameButtons{
+    width: 155px;
+}
+#scorePanel{
+    display: block;
+}
